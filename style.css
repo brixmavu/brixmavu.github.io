@@ -88,9 +88,41 @@ body {
 	background-color: #87CFE6;
 }
 #home:target ~ #header #navigation #link-home,
-#portfolio:target ~ #header #navigation #link-portfolio,
 #about:target ~ #header #navigation #link-about,
+#skills:target ~ #header #navigation #link-skills,
 #contact:target ~ #header #navigation #link-contact{
 	background: #000;
 	color: #fff;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+
+.box:nth-child(even) {
+  background-color: #ccc;
+  color: #000;
+}
+
+.wrapper {
+  width: 600px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, 100px);
+  grid-template-rows: 100px 100px 100px;
+  grid-auto-flow: column;
+}
+
+
+.wrapper2 {
+  width: 600px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: 100px 100px;
+  grid-auto-flow: column;
 }
