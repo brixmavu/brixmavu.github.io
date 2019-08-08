@@ -6,6 +6,7 @@ body {
 	background: #87CFE6;
 	overflow-x: hidden;
 	overflow-y: auto;
+    font-family: Raleway, sans-serif;
 }
 #header{
 	position: absolute;
