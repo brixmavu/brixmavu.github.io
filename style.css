@@ -1,46 +1,47 @@
 body {
-    background-color: #193c6d;
-    filter: progid: DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#003073', endColorstr='#029797');
-    background-image: url(//img.alicdn.com/tps/TB1d.u8MXXXXXXuXFXXXXXXXXXX-1900-790.jpg);
-    background-size: 100%;
-    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0, #003073), color-stop(100%, #029797));
-    background-image: -webkit-linear-gradient(135deg, #003073, #029797);
-    background-image: -moz-linear-gradient(45deg, #003073, #029797);
-    background-image: -ms-linear-gradient(45deg, #003073 0, #029797 100%);
-    background-image: -o-linear-gradient(45deg, #003073, #029797);
-    background-image: linear-gradient(135deg, #003073, #029797);
-    text-align: center;
-    margin: 0px;
-    overflow: hidden;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.my-title{
-	color: #379392;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
 }
 
-.my-sum{
-	color: #aaa;
+header a {
+    color: #fff;
+    text-decoration: none;
 }
 
-.social-link {
-	width: 34px;
-	height: 34px;
-	border-radius: 50%;
-	border: 2px solid #ddd;
-	display: -ms-flexbox;
+#navbar {
 	display: flex;
-	-ms-flex-align: center;
+	justify-content: space-between;
 	align-items: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	color: #aaa;
-	transition: all 0.3s;
-	font-size: 0.8rem;
+  }
+  #heading {
+	font-size: 2rem;
+	padding: 10px;
+  }
+  #navbar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+  }
+  #navbar li {
+	display: inline-block;
+	margin-right: 10px;
   }
   
-  .social-link:hover, .social-link:focus {
-	background: #379392;
-	color: #fff;
-	text-decoration: none;
-	border-color: #379392;
-  }
+
+main {
+    padding: 1em;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
