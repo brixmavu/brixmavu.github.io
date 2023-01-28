@@ -59,7 +59,7 @@ footer {
 .card-layout__item {
   /* There will be 3 cards per row */
   flex-basis: 33.33333%;
-
+/* flex-basis: 50%; */
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
