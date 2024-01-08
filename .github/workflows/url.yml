@@ -14,4 +14,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Use the URL secret
-        run: echo ${{ secrets.URL }}
+        run: |
+          echo "URL=${{ secrets.URL }}" >> $GITHUB_ENV
+          node javascripts/script.js

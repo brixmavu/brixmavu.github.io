@@ -1,5 +1,5 @@
-
-const url = `${{ secrets.URL }}`;
+const url = process.env.URL;
+console.log(url);
 
 document
   .getElementById('contact-form')
