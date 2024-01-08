@@ -15,5 +15,4 @@ jobs:
 
       - name: Use the URL secret
         run: |
-          echo "URL=${{ secrets.URL }}" >> $GITHUB_ENV
-          node javascripts/script.js
+          run: echo "::set-env name=URL::${{ secrets.URL }}"

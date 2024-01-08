@@ -1,4 +1,4 @@
-const url = process.env.URL;
+const url = window.URL;
 console.log(url);
 
 document
