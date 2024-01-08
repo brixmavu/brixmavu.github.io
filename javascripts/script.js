@@ -1,4 +1,4 @@
-const url = window.URL;
+const url = window.URL.toString();
 console.log(url);
 
 document
