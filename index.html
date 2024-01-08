@@ -1,98 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./stylesheets/style.css">
+  <link rel="stylesheet" href="./stylesheets/bootstrap-icons.css">
 	<title>Brixton Mavu</title>
 </head>
-
 <body>
-	<header>
-		<nav id="navbar">
-			<h1 id="heading">Brixton Mavu</h1>
-			<ul>
-				<li><a href="#about">About</a></li>
-				<li><a href="#portfolio">Portfolio</a></li>
-				<li><a href="#contact">Contact</a></li>
-				<li><a href="https://brixmavu.github.io/js-for-beginners/">blog</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<section id="about">
-			<h1>About Me</h1>
-			<p>I am a highly skilled and dedicated node.js developer with several years of experience in building web
-				applications and RESTful APIs. I have a proven track record of delivering projects on time and to a high
-				standard. My expertise in JavaScript and related technologies, such as Express and MongoDB, allows me to
-				create highly performant and scalable applications. I am also well-versed in best practices for
-				security, testing, and deployment. I am a team player who thrives in fast-paced environments and is
-				always eager to learn and improve.</p>
-		</section>
-		<section id="portfolio">
-			<h1>Portfolio</h1>
-			<div class="card-layout">
-				<!-- A card with given width -->
-				<div class="card-layout__item">
-					<h4>Currency Conveter</h4>
-					<p>I built a currency converter using HTML, CSS, and JavaScript, which allows users to easily convert between different currencies. I used the openexchangerates API to access real-time exchange rates</p>
-					<a href="https://brixmavu.github.io/CurrencyConveter/">Demo Link</a>
-				</div>
-				<div class="card-layout__item">
-					<h4>Simple Calculator</h4>
-					<p>This calculator project demonstrates my ability to work with Progressive Web App technology, allowing the application to be installed on any device and be used offline. The project is built using HTML, CSS, and JavaScript, and is optimized for different screen sizes.</p>
-					<a href="https://brixmavu.github.io/calculator-JS/">Calculator</a>
-				</div>
-				<div class="card-layout__item">
-					<h4>Simple Wallet Frontend</h4>
-					<p>I designed and developed a user-friendly frontend wallet interface using HTML, CSS, and JavaScript. The interface provides users with a secure and intuitive way to manage their digital assets.</p>
-					<a href="https://brixmavu.github.io/Simple-Wallet-UI-HTML/">Demo Link</a>
-				</div>
-				<div class="card-layout__item">
-					<h4>Tic-Tac-Toe</h4>
-					<p>I built a Tic-Tac-Toe game that showcases my ability to work with front-end technologies such as HTML, CSS and JavaScript.</p>
-					<a href="https://brixmavu.github.io/Tic-Tac-Toe/">Play ▶️</a>
-				</div>
-				<div class="card-layout__item">
-					<h4>Bus Reservation System</h4>
-					<p>An example of Bus Reservation System built with HTML, CSS and JavaScript</p>
-					<a href="https://brixmavu.github.io/Bus-Reservations/">Demo Link</a>
-				</div>
-				<div class="card-layout__item">
-					<h4>Company Clock In/Out System</h4>
-					<p>Simple Company Clock In/Out System built using HTML, CSS, and JavaScript</p>
-					<a href="https://brixmavu.github.io/Company-Clock-In-Out-System/">Demo Link</a>
-				</div><div class="card-layout__item">
-					<h4>Interactive Form</h4>
-					<p>Simple interactive form HTML</p>
-					<a href="https://brixmavu.github.io/interactive-form/">Form</a>
-				</div>
-			</div>
-		</section>
-		<section id="contact">
-			<h1>Contact</h1>
-			<div align="center" class="socialbtns">
-				<ul>
-				<!-- <li><a href="#" class="fa fa-lg fa-facebook"></a></li> -->
-				<!-- <li><a href="https://twitter.com/BrixdeMavex" class="fa fa-lg fa-twitter"></a></li> -->
-				<li><a href="https://api.whatsapp.com/send?phone=27847481126" class='fa fa-whatsapp'></a></li>
-				<!-- <li><a href="#" class="fa fa-lg fa-google-plus"></a></li> -->
-				<li><a href="https://github.com/brixmavu" class="fa fa-lg fa-github"></a></li>
-				<!-- <li><a href="#" class="fa fa-lg fa-pinterest"></a></li> -->
-				<li><a href="https://www.linkedin.com/in/brixton-mavu-785669110/" class="fa fa-lg fa-linkedin"></a></li>
-				<!-- <li><a href="#" class="fa fa-lg fa-instagram"></a></li> -->
-				<!-- <li><a href="#" class="fa fa-lg fa-youtube"></a></li> -->
-				<li><a href="mailto:mavub@gmail.com" class="fa fa-lg fa-envelope-o"></a></li>
-				</ul>
-				</div>
-		</section>
-	</main>
-	<footer>
-		<p>©2023 Brixton Mavu</p>
-	</footer>
-	<script src="./script.js"></script>
-</body>
+  <nav>
+    <ul>
+      <li>Brix Mavu</li>
+      <li>Software Engineer</li>
+    </ul>
+  </nav>
 
+  <main>
+    <h1>Contact Me</h1>
+    <form id="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <footer>
+  <a href="https://wa.me/27847481126" class="bi bi-whatsapp" target="_blank" title="WhatsApp"></a>
+  <a href="https://github.com/brixmavu" class="bi bi-github" target="_blank" title="GitHub"></a>
+  <a href="https://www.linkedin.com/in/brixton-mavu-785669110/" class="bi bi-linkedin" target="_blank" title="LinkedIn"></a>
+  <a href="mailto:mavub@gmail.com" class="bi bi-envelope-fill" title="Email"></a>
+</footer>
+<script src="./javascripts/script.js"></script>
+</body>
 </html>

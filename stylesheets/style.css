@@ -1,0 +1,94 @@
+ /* Reset default styles */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+/* Style for the navigation bar */
+nav {
+  background-color: #2C3E50;
+  color: #ECF0F1;
+  padding: 10px;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  font-size: 18px;
+}
+
+/* Style for the main content */
+main {
+  padding: 20px;
+}
+
+/* Style for the form */
+form {
+  display: grid;
+  grid-gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #BDC3C7; /* Added border color */
+  background-color: #ECF0F1;
+  color: #34495E;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3498DB;
+  color: #ECF0F1;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the footer */
+/* footer {
+  background-color: #2C3E50;
+  padding: 10px;
+  text-align: center;
+} */
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #2C3E50;
+  color: #ECF0F1;
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: inherit;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+.bi {
+  font-size: 24px; /* Adjust size as needed */
+  padding: 8px;
+}
+
+a {
+  color: #3498DB;
+  margin-right: 10px;
+  text-decoration: none;
+}
