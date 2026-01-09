@@ -1,43 +1,404 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./stylesheets/style.css">
-  <link rel="stylesheet" href="./stylesheets/bootstrap-icons.css">
-	<title>Brixton Mavu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brix Mavu - Galactic Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0015 0%, #1a0033 50%, #0d001a 100%);
+            color: #00ffff;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(10, 0, 30, 0.7);
+            border: 2px solid #00ffff;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.5), inset 0 0 40px rgba(138, 43, 226, 0.2);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #8a2be2;
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #8a2be2; }
+            to { text-shadow: 0 0 30px #ff00ff, 0 0 60px #ff00ff, 0 0 90px #8a2be2; }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            background: rgba(20, 0, 40, 0.8);
+            border: 2px solid #8a2be2;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.4);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 50px rgba(138, 43, 226, 0.7), 0 0 30px rgba(0, 255, 255, 0.4);
+            border-color: #00ffff;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #ff00ff;
+            text-shadow: 0 0 15px #ff00ff;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #00ffff;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .summary {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #b19cd9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(0, 255, 255, 0.1));
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 0 40px rgba(255, 0, 255, 0.6);
+            border-color: #ff00ff;
+        }
+
+        .project-card h3 {
+            color: #00ffff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .project-card p {
+            color: #b19cd9;
+            line-height: 1.6;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #8a2be2, #ff00ff);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .skill-tag:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.1) rotate(-3deg);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+        }
+
+        .contact {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #00ffff;
+            text-shadow: 0 0 15px #00ffff;
+        }
+
+        .contact a {
+            color: #ff00ff;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .contact a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff00ff;
+            transition: width 0.3s;
+            box-shadow: 0 0 10px #ff00ff;
+        }
+
+        .contact a:hover::after {
+            width: 100%;
+        }
+
+        .contact a:hover {
+            text-shadow: 0 0 20px #ff00ff;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.2rem; }
+            h2 { font-size: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+        .cyber-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+            margin: 40px 0;
+            box-shadow: 0 0 10px #00ffff;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li>Brix Mavu</li>
-      <li>Software Engineer</li>
-    </ul>
-  </nav>
+    <div id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <h1>BRIX MAVU</h1>
+            <p class="subtitle">[ GALACTIC DEVELOPER // CODE NINJA ]</p>
+        </header>
 
-  <main>
-    <h1>Contact Me</h1>
-    <form id="contact-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+        <section class="section">
+            <h2>// MISSION_BRIEF</h2>
+            <p class="summary">
+                Highly motivated and detail-oriented developer navigating the digital cosmos with expertise in JavaScript, TypeScript, and cutting-edge web technologies. Architecting the future, one line of code at a time.
+            </p>
+        </section>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+        <div class="cyber-line"></div>
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
+        <section class="section">
+            <h2>// LEGENDARY_PROJECTS</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>⚡ MicroTest</h3>
+                    <p>A lightweight JavaScript testing framework forged in the depths of code, delivering blazing-fast test execution with zero dependencies. Pure power, minimal footprint.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>🧠 Advanced State Management System</h3>
+                    <p>A sophisticated JavaScript state management solution that brings order to chaos. Predictable, scalable, and lightning-fast state orchestration for modern applications.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>🚀 Vanilla-JS-SPA-Builder</h3>
+                    <p>A TypeScript-powered framework for crafting single-page applications without the bloat. Pure vanilla excellence with the power of type safety and modern tooling.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>🗺️ Advanced Router</h3>
+                    <p>A powerful, modular, vanilla TypeScript/JavaScript router for single-page applications. Modern features meet timeless simplicity in this navigation masterpiece.</p>
+                </div>
+            </div>
+        </section>
 
-      <button type="submit">Submit</button>
-    </form>
-  </main>
+        <div class="cyber-line"></div>
 
-  <footer>
-  <a href="https://wa.me/27847481126" class="bi bi-whatsapp" target="_blank" title="WhatsApp"></a>
-  <a href="https://github.com/brixmavu" class="bi bi-github" target="_blank" title="GitHub"></a>
-  <a href="https://www.linkedin.com/in/brixton-mavu-785669110/" class="bi bi-linkedin" target="_blank" title="LinkedIn"></a>
-  <a href="mailto:mavub@gmail.com" class="bi bi-envelope-fill" title="Email"></a>
-</footer>
-<script src="./javascripts/script.js"></script>
+        <section class="section">
+            <h2>// TECH_ARSENAL</h2>
+            <div class="skills-list">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Web APIs</span>
+                <span class="skill-tag">SPA Development</span>
+            </div>
+        </section>
+
+        <div class="cyber-line"></div>
+
+        <section class="section">
+            <div class="contact">
+                <h2>// ESTABLISH_CONNECTION</h2>
+                <p>📡 <a href="mailto:brixmavu@gmail.com">brixmavu@gmail.com</a></p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Generate starfield
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.opacity = Math.random();
+            starsContainer.appendChild(star);
+        }
+
+        // Add parallax effect to sections
+        document.addEventListener('mousemove', (e) => {
+            const sections = document.querySelectorAll('.section');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            sections.forEach((section, index) => {
+                const speed = (index + 1) * 2;
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                section.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+
+        // Skill tag click effect
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 10);
+            });
+        });
+
+        // Project card click animation
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+    </script>
 </body>
 </html>
