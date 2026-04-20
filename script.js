@@ -12,7 +12,7 @@ const projects = [
     description: '12 zero-dependency JS/Java modules. HTTP, WebSockets, SSE, EdDSA auth, queues. 125KB total. Runs on Termux. See tutorial.',
     tags: ['Java', 'Node.js', 'Zero-Dep', 'Termux'],
     link: 'https://gitlab.com/brixtonmavu/zen-stack',
-    demo: 'zenstack.html'
+    demo: 'https://mellow-flan-4e1799.netlify.app'
   },
   {
     name: 'Maths Dojo',

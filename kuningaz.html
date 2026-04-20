@@ -22,7 +22,7 @@
       overflow-x: hidden;
     }
 
-   .container {
+  .container {
       max-width: 700px;
       margin: 0 auto;
       border: 1px solid #00ff41;
@@ -31,7 +31,7 @@
       box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
     }
 
-   .container::before {
+  .container::before {
       content: 'kuningaz.exe';
       position: absolute;
       top: -10px;
@@ -69,22 +69,22 @@
       color: #cccccc;
     }
 
-   .green {
+  .green {
       color: #00ff41;
       font-weight: 700;
     }
 
-   .white {
+  .white {
       color: #ffffff;
       font-weight: 700;
     }
 
-   .red {
+  .red {
       color: #ff0040;
       font-weight: 700;
     }
 
-   .gold {
+  .gold {
       color: #ffd700;
       font-weight: 700;
       text-shadow: 0 0 5px #ffd700;
@@ -103,7 +103,7 @@
       box-shadow: 0 0 10px #00ff41;
     }
 
-   .sigil {
+  .sigil {
       text-align: center;
       margin: 2rem 0;
       font-size: 11px;
@@ -111,13 +111,13 @@
       letter-spacing: 2px;
     }
 
-   .back {
+  .back {
       margin-top: 3rem;
       padding-top: 1rem;
       border-top: 1px solid #333;
     }
 
-   .school {
+  .school {
       border: 2px solid #ff0040;
       padding: 1.5rem;
       margin: 1.5rem 0;
@@ -125,7 +125,7 @@
       box-shadow: inset 0 0 15px rgba(255, 0, 64, 0.3);
     }
 
-   .scripture {
+  .scripture {
       border-left: 4px solid #ffd700;
       padding: 1.5rem;
       margin: 2rem 0;
@@ -133,37 +133,37 @@
       box-shadow: inset 0 0 15px rgba(255, 215, 0, 0.2);
     }
 
-   .scripture p {
+  .scripture p {
       color: #ffd700;
       font-style: italic;
     }
 
-   .stats {
+  .stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
       margin: 2rem 0;
     }
 
-   .stat {
+  .stat {
       border: 1px solid #00ff41;
       padding: 1rem;
       text-align: center;
     }
 
-   .stat-num {
+  .stat-num {
       font-size: 24px;
       color: #ffffff;
       font-weight: 700;
     }
 
-   .stat-label {
+  .stat-label {
       font-size: 11px;
       color: #00ff41;
       text-transform: uppercase;
     }
 
-   .puzzle-nav {
+  .puzzle-nav {
       margin-top: 2rem;
       padding-top: 1rem;
       border-top: 1px solid #333;
@@ -171,9 +171,17 @@
       font-size: 12px;
     }
 
-   .puzzle-nav a {
+  .puzzle-nav a {
       margin: 0 8px;
       color: #00ff41;
+    }
+
+  .ecosystem {
+      border: 2px solid #00ff41;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      background: #001a00;
+      box-shadow: inset 0 0 15px rgba(0, 255, 65, 0.2);
     }
 
     @keyframes flicker {
@@ -181,7 +189,7 @@
       50% { opacity: 0.9; text-shadow: 0 0 20px #00ff41; }
     }
 
-   .cursor {
+  .cursor {
       animation: blink 1s infinite;
     }
 
@@ -192,8 +200,8 @@
 
     @media (max-width: 600px) {
       body { padding: 1rem; font-size: 13px; }
-     .container { padding: 1rem; }
-     .stats { grid-template-columns: 1fr; }
+    .container { padding: 1rem; }
+    .stats { grid-template-columns: 1fr; }
       h1 { font-size: 22px; }
     }
   </style>
@@ -287,12 +295,29 @@
       <span class="green">GIT</span> — The Chronicle. Every commit a battle. Every merge a victory.
     </p>
 
+    <div class="ecosystem">
+      <p><span class="green">ECOSYSTEM.SYS:</span> <span class="white">TERMUX + KUNINGAZ</span></p>
+      <p>
+        Termux turns Android into Linux. Kuningaz turns Linux into a shipyard.
+        No laptop? No problem. 300MB RAM phone runs the full Zen Stack.
+      </p>
+      <p>
+        <span class="green">[BOOT]</span> <a href="termux-starter.html">termux-starter.html</a> — Setup guide. JDK + Git + first server in 3 commands.<br>
+        <span class="green">[CORE]</span> <a href="https://mellow-flan-4e1799.netlify.app/" target="_blank">Zen Stack v1.1</a> — 12 modules. 125KB. Docs + demos. Live.<br>
+        <span class="green">[LAW]</span> Zero-dep, offline-first, 2G-certified. If it won't run in Epworth, it doesn't ship.
+      </p>
+      <p>
+        This is how the kin ship. Phone → Termux → Zen Stack → Production.
+        Silicon Valley uses MacBooks. We use whatever we have. And we still win.
+      </p>
+    </div>
+
     <h2>missions.log</h2>
     <p>
       <span class="green">[LIVE]</span> <a href="https://kumusha-wallet.onrender.com" target="_blank">KUMUSHA WALLET</a>
       — Lion backend. Remittance + merchants. Takealot Zim MVP. Fears no 2G.<br>
 
-      <span class="green">[LIVE]</span> <a href="zenstack.html">ZEN STACK v1.1</a>
+      <span class="green">[LIVE]</span> <a href="https://mellow-flan-4e1799.netlify.app/" target="_blank">ZEN STACK v1.1</a>
       — Greyhound fast. 12 modules. 125KB. Termux native. <a href="https://gitlab.com/brixtonmavu/zen-stack" target="_blank">Source</a>.<br>
 
       <span class="green">[LIVE]</span> <a href="https://admirable-seahorse-8c8614.netlify.app/" target="_blank">MATHS DOJO</a>
@@ -319,7 +344,7 @@
 
     <div class="puzzle-nav">
       <a href="index.html">Home</a> •
-      <a href="zenstack.html">Zen Stack</a> •
+      <a href="https://mellow-flan-4e1799.netlify.app/">Zen Stack</a> •
       <a href="dojo.html">Dojo</a> •
       <a href="53functions.html">53 Functions</a> •
       <a href="resume.html">CV</a>

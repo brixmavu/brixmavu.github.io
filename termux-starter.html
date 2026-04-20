@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termux Starter — Node + Java on Android</title>
+<style>
+  :root {
+    --kz-gold: #D4AF37;
+    --kz-black: #0A0A0A;
+    --kz-gray-900: #111111;
+    --kz-gray-800: #1A1A1A;
+    --kz-gray-700: #2A2A2A;
+    --kz-gray-100: #F5F5F5;
+    --kz-white: #FFFFFF;
+    --kz-green: #00ff41;
+  }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--kz-black);
+    color: var(--kz-gray-100);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+  }
+  header {
+    border-bottom: 2px solid var(--kz-gold);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+  h1 {
+    font-size: 1.75rem;
+    color: var(--kz-white);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .subtitle {
+    color: var(--kz-gold);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 1.375rem;
+    color: var(--kz-white);
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--kz-gray-700);
+  }
+  h3 {
+    font-size: 1.125rem;
+    color: var(--kz-gold);
+    margin: 24px 0 12px;
+  }
+  p, li {
+    margin-bottom: 16px;
+    color: var(--kz-gray-100);
+  }
+  ul, ol {
+    padding-left: 24px;
+    margin-bottom: 16px;
+  }
+  a {
+    color: var(--kz-gold);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  a:hover {
+    border-bottom-color: var(--kz-gold);
+  }
+  code {
+    font-family: 'Courier New', monospace;
+    background: var(--kz-gray-800);
+    color: var(--kz-gold);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  pre {
+    background: var(--kz-gray-900);
+    border: 1px solid var(--kz-gray-700);
+    border-left: 3px solid var(--kz-gold);
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 16px 0 24px;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    color: var(--kz-gray-100);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .note {
+    background: var(--kz-gray-800);
+    border-left: 3px solid var(--kz-gold);
+    padding: 16px;
+    margin: 24px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .note strong {
+    color: var(--kz-gold);
+  }
+  .btn {
+    display: inline-block;
+    background: var(--kz-gold);
+    color: var(--kz-black);
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 16px 8px 16px 0;
+    border: none;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: #E6C555;
+    border-bottom: none;
+  }
+  .btn-secondary {
+    background: var(--kz-gray-700);
+    color: var(--kz-white);
+  }
+  .btn-secondary:hover {
+    background: var(--kz-gray-800);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--kz-gray-700);
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--kz-gray-700);
+  }
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 24px;
+  }
+  .tag {
+    background: var(--kz-gray-800);
+    color: var(--kz-gold);
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.8125rem;
+    border: 1px solid var(--kz-gray-700);
+  }
+  .back-nav {
+    margin-bottom: 24px;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="back-nav">
+      <a href="kuningaz.html">< back to kuningaz</a> • <a href="index.html">home</a>
+    </div>
+
+    <header>
+      <h1>Termux Starter Kit</h1>
+      <p class="subtitle">Node.js + Java 21 + Zero Dependencies on Android</p>
+      <div class="tag-list">
+        <span class="tag">termux</span>
+        <span class="tag">android</span>
+        <span class="tag">nodejs</span>
+        <span class="tag">java</span>
+        <span class="tag">zero-deps</span>
+        <span class="tag">hard-knocks</span>
+      </div>
+    </header>
+
+    <main>
+      <p>You don't need a laptop to ship production code. Android + Termux = Linux. Linux + JDK = server. Server + zero-deps = Kuningaz. This guide gets you from F-Droid install to running Java + Node servers in 10 minutes.</p>
+
+      <div class="note">
+        <strong>Doctrine:</strong> This powers <a href="https://mellow-flan-4e1799.netlify.app/" target="_blank">Zen Stack</a> — 12 modules, 125KB total, 0 npm packages. Built and deployed from a phone. If it runs on 2G in Epworth, it ships.
+      </div>
+
+      <h2>Step 1: Install Termux + Base Packages</h2>
+      
+      <h3>Install Termux</h3>
+      <p>Download from F-Droid only. Play Store version is dead. Avoid it.</p>
+
+      <h3>Update + Core Tools</h3>
+      <pre><code>pkg update && pkg upgrade
+pkg install git vim curl wget</code></pre>
+
+      <div class="note">
+        <strong>Packages explained:</strong><br>
+        <code>git</code> — Version control. Clone, commit, push. No GUI needed.<br>
+        <code>vim</code> — Terminal editor. Lightweight. Works offline.<br>
+        <code>curl/wget</code> — HTTP clients. Test APIs, download files.<br>
+        <code>nodejs</code> — JavaScript runtime. Runs .js files without browser.<br>
+        <code>openjdk-17</code> — Java Development Kit. Compiles and runs .java files.
+      </div>
+
+      <h2>Step 2: Node.js Server — The Greyhound</h2>
+      
+      <h3>Install Node</h3>
+      <pre><code>pkg install nodejs</code></pre>
+
+      <h3>Get Zen Stack</h3>
+      <pre><code>termux-setup-storage
+cd storage/shared
+git clone https://gitlab.com/brixtonmavu/zen-stack
+cd zen-stack</code></pre>
+
+      <h3>Run Vanilla Server</h3>
+      <pre><code>// server.js
+const VanillaServer = require('./vanillaserver.js');
+const app = new VanillaServer();
+
+app.get('/', (req, res) => {
+  res.html('&lt;h1&gt;Greyhound Live&lt;/h1&gt;&lt;p&gt;50KB. 2G approved.&lt;/p&gt;');
+});
+
+app.get('/api/status', (req, res) => {
+  res.json({ engine: 'vanilla', deps: 0, latency: 'low' });
+});
+
+app.listen(8000, () => console.log('http://localhost:8000'));</code></pre>
+
+      <pre><code>node server.js</code></pre>
+      <p>Open Chrome: <code>http://127.0.0.1:8000</code>. That's a full HTTP server. No Express. No npm install. 12KB file.</p>
+
+      <h2>Step 3: Java Server — The Lion</h2>
+      
+      <h3>Install JDK 17</h3>
+      <pre><code>pkg install openjdk-17</code></pre>
+      <p>Verify: <code>java -version</code> should show 17.x</p>
+
+      <h3>Why Java on Phone?</h3>
+      <ul>
+        <li><strong>Concurrency:</strong> Threads, locks, synchronized. King commands armies.</li>
+        <li><strong>No runtime deps:</strong> JDK ships with <code>com.sun.net.httpserver</code>. No Spring. No Tomcat.</li>
+        <li><strong>Performance:</strong> JIT compiler. Outruns interpreted scripts under load.</li>
+        <li><strong>ACID:</strong> Connect to PostgreSQL with raw JDBC. He Goat approved.</li>
+      </ul>
+
+      <h3>Compile + Run Java HTTP Server</h3>
+      <pre><code>// Server.java
+import com.sun.net.httpserver.HttpServer;
+import com.sun.net.httpserver.HttpExchange;
+import java.net.InetSocketAddress;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+
+public class Server {
+  public static void main(String[] args) throws Exception {
+    HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+    
+    server.createContext("/", ex -> {
+      String res = "&lt;h1&gt;Lion Live&lt;/h1&gt;&lt;p&gt;Java 21. Zero deps. Fears no load.&lt;/p&gt;";
+      send(ex, 200, res);
+    });
+    
+    server.createContext("/api/health", ex -> {
+      String json = "{\"status\":\"ok\",\"engine\":\"jdk\",\"deps\":0}";
+      ex.getResponseHeaders().set("Content-Type", "application/json");
+      send(ex, 200, json);
+    });
+    
+    server.setExecutor(null);
+    server.start();
+    System.out.println("Lion running at http://localhost:8080");
+  }
+  
+  static void send(HttpExchange ex, int code, String res) throws Exception {
+    byte[] bytes = res.getBytes(StandardCharsets.UTF_8);
+    ex.sendResponseHeaders(code, bytes.length);
+    try (OutputStream os = ex.getResponseBody()) {
+      os.write(bytes);
+    }
+  }
+}</code></pre>
+
+      <pre><code>javac Server.java
+java Server</code></pre>
+      <p>Open Chrome: <code>http://127.0.0.1:8080</code>. That's raw JDK. No framework. Compiles in 200ms. Runs on 300MB RAM.</p>
+
+      <div class="note">
+        <strong>Java Story:</strong> Spring Boot = 50MB minimum, 8s cold start. This = 50KB source, 200ms start. Termux can't run Spring. It can run the Lion. Hard Knocks doesn't need annotations. It needs <code>synchronized</code>.
+      </div>
+
+      <h2>Step 4: Interactive Demos</h2>
+      <p>Zen Stack ships with demo generators for every module.</p>
+      <pre><code>chmod +x generate-demos.sh
+./generate-demos.sh</code></pre>
+      <p>Creates 12 <code>*-demo.html</code> files. Open <code>vanillarouter-demo.html</code> to test routing. Each demo has a download button for the raw source.</p>
+
+      <h2>Step 5: Ship to Production</h2>
+      <ol>
+        <li><strong>Static sites:</strong> Upload <code>.html</code> files to Netlify. Drag-drop. Done.</li>
+        <li><strong>Node API:</strong> Deploy to Render/Railway. Set start command: <code>node server.js</code></li>
+        <li><strong>Java API:</strong> Compile to JAR: <code>jar cfe app.jar Server *.class</code>. Deploy to Fly.io or any VPS.</li>
+      </ol>
+
+      <div class="note">
+        <strong>For the kin:</strong> This stack runs on data bundles, not fiber. On 2G, not 5G. On phones, not MacBooks. SADC first. Silicon Valley never. We build our own rails.
+      </div>
+
+      <a href="https://gitlab.com/brixtonmavu/zen-stack" class="btn" target="_blank">Get Zen Stack Source</a>
+      <a href="https://mellow-flan-4e1799.netlify.app/" class="btn btn-secondary" target="_blank">View Live Docs</a>
+    </main>
+
+    <footer>
+      <p>Termux + JDK + Node = Kingdom • Kuningaz Doctrine • Hard Knocks Certified</p>
+      <p><a href="kuningaz.html">< back to kuningaz</a> • <a href="index.html">home</a></p>
+    </footer>
+  </div>
+</body>
+</html>
