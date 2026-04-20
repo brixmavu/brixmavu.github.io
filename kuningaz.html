@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kuningaz — Code Dojo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000000;
+      color: #00ff41;
+      font-family: 'Courier New', 'Monaco', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 2rem;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+   .container {
+      max-width: 700px;
+      margin: 0 auto;
+      border: 1px solid #00ff41;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+    }
+
+   .container::before {
+      content: 'kuningaz.exe';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background: #000;
+      padding: 0 10px;
+      color: #00ff41;
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      animation: flicker 2s infinite;
+      text-shadow: 0 0 10px #00ff41;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    h2::before {
+      content: '>>> ';
+      color: #00ff41;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #cccccc;
+    }
+
+   .green {
+      color: #00ff41;
+      font-weight: 700;
+    }
+
+   .white {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+   .red {
+      color: #ff0040;
+      font-weight: 700;
+    }
+
+   .gold {
+      color: #ffd700;
+      font-weight: 700;
+      text-shadow: 0 0 5px #ffd700;
+    }
+
+    a {
+      color: #00ff41;
+      text-decoration: none;
+      border-bottom: 1px dashed #00ff41;
+      transition: all 0.2s;
+    }
+
+    a:hover {
+      background: #00ff41;
+      color: #000000;
+      box-shadow: 0 0 10px #00ff41;
+    }
+
+   .sigil {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 11px;
+      color: #333;
+      letter-spacing: 2px;
+    }
+
+   .back {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #333;
+    }
+
+   .school {
+      border: 2px solid #ff0040;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      background: #0a0000;
+      box-shadow: inset 0 0 15px rgba(255, 0, 64, 0.3);
+    }
+
+   .scripture {
+      border-left: 4px solid #ffd700;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      background: #0a0a00;
+      box-shadow: inset 0 0 15px rgba(255, 215, 0, 0.2);
+    }
+
+   .scripture p {
+      color: #ffd700;
+      font-style: italic;
+    }
+
+   .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+   .stat {
+      border: 1px solid #00ff41;
+      padding: 1rem;
+      text-align: center;
+    }
+
+   .stat-num {
+      font-size: 24px;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+   .stat-label {
+      font-size: 11px;
+      color: #00ff41;
+      text-transform: uppercase;
+    }
+
+   .puzzle-nav {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #333;
+      text-align: center;
+      font-size: 12px;
+    }
+
+   .puzzle-nav a {
+      margin: 0 8px;
+      color: #00ff41;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; text-shadow: 0 0 10px #00ff41; }
+      50% { opacity: 0.9; text-shadow: 0 0 20px #00ff41; }
+    }
+
+   .cursor {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem; font-size: 13px; }
+     .container { padding: 1rem; }
+     .stats { grid-template-columns: 1fr; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>KUNINGAZ</h1>
+
+    <p><span class="green">class:</span> exterminator | code artist | code ninja</p>
+    <p><span class="green">domain:</span> Harare • Cape Town • Lusaka • The Matrix</p>
+    <p><span class="green">uptime:</span> SAST GMT+2 | 24/7/365 | No sleep</p>
+
+    <div class="school">
+      <p><span class="red">ALMA MATER:</span> <span class="white">THE SCKOOL OF THE HARD KNOCKS</span></p>
+      <p><span class="green">established:</span> SINCE FOREVER</p>
+      <p><span class="green">degree:</span> PhD IN SHIPPING</p>
+      <p><span class="green">gpa:</span> BLOOD. SWEAT. COMMITS.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Dependencies</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">12</div>
+        <div class="stat-label">Zen Modules</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">125KB</div>
+        <div class="stat-label">Total Stack</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Uptime</div>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <p><span class="gold">PROVERBS 30:29-31</span></p>
+      <p>
+        There be three things which go well, yea, four are comely in going:<br>
+        A <span class="white">lion</span> which is strongest among beasts, and turneth not away for any;<br>
+        A <span class="white">greyhound</span>; an <span class="white">he goat</span> also;<br>
+        And a <span class="white">king</span>, against whom there is no rising up.
+      </p>
+      <p><span class="green">// KUNINGAZ EXECUTABLE:</span></p>
+      <p>
+        <span class="white">LION</span> = Java 21. King of JVM. Fears no load.<br>
+        <span class="white">GREYHOUND</span> = Vanilla JS. 50KB. Outruns React.<br>
+        <span class="white">HE GOAT</span> = PostgreSQL. ACID horns. Climbs any query.<br>
+        <span class="white">KING</span> = kuningaz. For the kin. No bug shall rise.
+      </p>
+    </div>
+
+    <h2>identity.exe</h2>
+    <p>
+      King does live on social media. Modern day <span class="white">Neo</span> — not the movie.
+      <span class="white">Nehor</span> from the books. Chose the red pill before Morpheus was born.
+    </p>
+    <p>
+      This is <a href="dojo.html" class="dojo-link">the karate dojo</a> of code. I read code for the kin.
+      I execute like King David — shepherd to king, sling to crown.
+      I walk like the four: lion, greyhound, he goat, and king.
+    </p>
+
+    <h2>doctrine.sys</h2>
+    <p>
+      <span class="green">[1]</span> <span class="white">ZERO DEPENDENCIES.</span> Lion hunts alone.
+      Frameworks are for prey. JDK is the claw.
+    </p>
+    <p>
+      <span class="green">[2]</span> <span class="white">EXTERMINATE BLOAT.</span> Greyhound starves fat.
+      50KB ships. 5MB dies. 2G is the battlefield.
+    </p>
+    <p>
+      <span class="green">[3]</span> <span class="white">FOR THE KIN.</span> He goat climbs for the herd.
+      SADC first. Silicon Valley never. We build our own rails.
+    </p>
+    <p>
+      <span class="green">[4]</span> <span class="white">CONCURRENCY IS COMBAT.</span> King commands threads.
+      synchronized is the sword. Deadlock is dishonor. I train in production.
+    </p>
+
+    <h2>weapons.list</h2>
+    <p>
+      <span class="green">JAVA 21</span> — The Lion. com.sun.net.httpserver. volatile. No Spring. No mercy.<br>
+      <span class="green">VANILLA JS</span> — The Greyhound. DOM API. WebSockets. SSE. No VDOM. Just speed.<br>
+      <span class="green">POSTGRESQL</span> — The He Goat. ACID. No ORM. Hand-written SQL. Transactions or death.<br>
+      <span class="green">TERMUX</span> — The Throne. Phone = sword. 300MB = kingdom. Hard Knocks HQ.<br>
+      <span class="green">GIT</span> — The Chronicle. Every commit a battle. Every merge a victory.
+    </p>
+
+    <h2>missions.log</h2>
+    <p>
+      <span class="green">[LIVE]</span> <a href="https://kumusha-wallet.onrender.com" target="_blank">KUMUSHA WALLET</a>
+      — Lion backend. Remittance + merchants. Takealot Zim MVP. Fears no 2G.<br>
+
+      <span class="green">[LIVE]</span> <a href="zenstack.html">ZEN STACK v1.1</a>
+      — Greyhound fast. 12 modules. 125KB. Termux native. <a href="https://gitlab.com/brixtonmavu/zen-stack" target="_blank">Source</a>.<br>
+
+      <span class="green">[LIVE]</span> <a href="https://admirable-seahorse-8c8614.netlify.app/" target="_blank">MATHS DOJO</a>
+      — He goat stubborn. <50KB. Runs on calculators. Outlives empires.<br>
+    </p>
+
+    <h2>contact.sh</h2>
+    <p>
+      Email: <a href="mailto:brixtonmavu@gmail.com">brixtonmavu@gmail.com</a><br>
+      Portfolio: <a href="index.html">brixmavu.github.io</a><br>
+      LinkedIn: <a href="https://linkedin.com/in/brixtonmavu" target="_blank">/in/brixtonmavu</a><br>
+      CV: <a href="resume.html" target="_blank">resume.html</a>
+    </p>
+    <p>
+      Building for SADC? For the unbanked? For the offline? Ping me.
+      Hard Knocks graduates don’t apply. We arrive. Like the four.
+    </p>
+
+    <div class="sigil">
+      01001011 01010101 01001110 01001001 01001110 01000111 01000001 01011010<br>
+      // kuningaz // hard_knocks_phd // stride: lion_greyhound_goat_king //<br>
+      // since_forever // for_the_kin // no_rising_up //
+    </div>
+
+    <div class="puzzle-nav">
+      <a href="index.html">Home</a> •
+      <a href="zenstack.html">Zen Stack</a> •
+      <a href="dojo.html">Dojo</a> •
+      <a href="53functions.html">53 Functions</a> •
+      <a href="resume.html">CV</a>
+    </div>
+
+    <div class="back">
+      <p><a href="index.html">< exit dojo</a><span class="cursor">_</span></p>
+    </div>
+  </div>
+</body>
+</html>

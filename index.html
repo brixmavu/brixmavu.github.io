@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brixton Mavu — Senior Java Engineer</title>
+  <meta name="description" content="Senior Java Engineer. Building secure, concurrent systems for Southern Africa. Java 17/21, zero dependencies, distributed ledgers. Remote SAST.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <div class="nav-brand">
+          <a href="kuningaz.html" class="brand-link">Brixton Mavu</a>
+          <nav class="nav-menu">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="zenstack.html" class="nav-link">Zen Stack</a>
+            <a href="dojo.html" class="nav-link">Dojo</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </nav>
+        </div>
+        <div class="nav-actions">
+          <a href="resume.html" class="btn btn-outline" target="_blank">Curriculum Vitae</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section id="about" class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">Senior Java Engineer</h1>
+            <p class="hero-description">
+              Building secure, concurrent financial systems. Java 17/21, zero dependencies, human-centric security. 
+              Remote across SAST (GMT+2). Shipping for Southern Africa from Harare, Cape Town, Lusaka.
+            </p>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/brixmavu" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+              <span class="icon icon-github"></span>
+            </a>
+            <a href="https://linkedin.com/in/brixtonmavu" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+              <span class="icon icon-linkedin"></span>
+            </a>
+            <a href="mailto:brixtonmavu@gmail.com" class="social-btn" aria-label="Email">
+              <span class="icon icon-mail"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <h2 class="section-title">Selected Work</h2>
+        <div class="projects-grid" id="projects-grid">
+          <!-- Injected by script.js -->
+        </div>
+      </div>
+    </section>
+
+        <section class="tech-section">
+      <div class="container">
+        <h2 class="section-title">Core Stack</h2>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <h3 class="tech-category">Backend</h3>
+            <div class="tech-skills">
+              <span class="skill">Java 17/21</span>
+              <span class="skill">Node.js</span>
+              <span class="skill">HttpServer</span>
+              <span class="skill">Concurrency</span>
+              <span class="skill">PostgreSQL</span>
+              <span class="skill">JDBC</span>
+            </div>
+          </div>
+          <div class="tech-card">
+            <h3 class="tech-category">Security</h3>
+            <div class="tech-skills">
+              <span class="skill">HMAC Auth</span>
+              <span class="skill">EdDSA</span>
+              <span class="skill">Audit Trails</span>
+              <span class="skill">3-Factor Auth</span>
+              <span class="skill">KYC/FICA</span>
+              <span class="skill">Rate Limiting</span>
+            </div>
+          </div>
+          <div class="tech-card">
+            <h3 class="tech-category">Frontend</h3>
+            <div class="tech-skills">
+              <span class="skill">Vanilla JS</span>
+              <span class="skill">HTML5</span>
+              <span class="skill">CSS3</span>
+              <span class="skill">WebSockets</span>
+              <span class="skill">SSE</span>
+              <span class="skill">Web APIs</span>
+            </div>
+          </div>
+          <div class="tech-card">
+            <h3 class="tech-category">Infra</h3>
+            <div class="tech-skills">
+              <span class="skill">Docker</span>
+              <span class="skill">Nginx</span>
+              <span class="skill">Linux</span>
+              <span class="skill">Termux</span>
+              <span class="skill">Git</span>
+              <span class="skill">CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="contact-wrapper">
+          <h2 class="section-title">Work Together</h2>
+          <div class="contact-card">
+            <p style="text-align:center;margin-bottom:1.5rem;color:var(--text-dim);">
+              Remote-first. Based across ZW, ZA, ZM. SAST timezone (GMT+2).<br>
+              Available for async collaboration + quarterly on-sites.
+            </p>
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-textarea" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-loading">Opening email...</span>
+              </button>
+              <p id="form-message" class="form-message" style="display: none;"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">
+          © 2026 Brixton Mavu. Built with Java + Vanilla JS. Zero frameworks.
+        </p>
+        <nav class="footer-nav">
+          <a href="kuningaz.html" class="footer-link">Kuningaz</a>
+          <a href="zenstack.html" class="footer-link">Zen Stack</a>
+          <a href="dojo.html" class="footer-link">Dojo</a>
+          <a href="53functions.html" class="footer-link">53 Functions</a>
+          <a href="https://github.com/brixmavu" class="footer-link">GitHub</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

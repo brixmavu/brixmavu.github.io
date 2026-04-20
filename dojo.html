@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kuningaz/dojo — Interview Arena</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000000;
+      color: #00ff41;
+      font-family: 'Courier New', 'Monaco', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+   .container {
+      max-width: 800px;
+      margin: 0 auto;
+      border: 2px solid #00ff41;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+    }
+
+   .container::before {
+      content: 'dojo.exe — INTERVIEW_MODE';
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: #000;
+      padding: 0 10px;
+      color: #00ff41;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #00ff41;
+      text-shadow: 0 0 10px #00ff41;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    h1:hover {
+      color: #ff0040;
+      text-shadow: 0 0 20px #ff0040;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      text-transform: uppercase;
+      border-bottom: 1px solid #00ff41;
+      padding-bottom: 0.5rem;
+    }
+
+    h2::before {
+      content: '>>> ';
+      color: #ff0040;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #cccccc;
+    }
+
+   .green { color: #00ff41; font-weight: 700; }
+   .white { color: #ffffff; font-weight: 700; }
+   .red { color: #ff0040; font-weight: 700; }
+   .gold { color: #ffd700; font-weight: 700; }
+
+    a {
+      color: #00ff41;
+      text-decoration: none;
+      border-bottom: 1px dashed #00ff41;
+    }
+
+    a:hover {
+      background: #00ff41;
+      color: #000000;
+    }
+
+   .interviewer {
+      border: 2px solid #ffffff;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      background: #0a0a0a;
+    }
+
+   .interviewer::before {
+      content: 'INTERVIEWER:';
+      color: #ffffff;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+   .candidate {
+      border: 2px solid #00ff41;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      background: #001a00;
+    }
+
+   .candidate::before {
+      content: 'KUNINGAZ:';
+      color: #00ff41;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+   .code {
+      background: #0a0a0a;
+      border-left: 3px solid #00ff41;
+      padding: 1rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+      color: #00ff41;
+      white-space: pre;
+      font-size: 13px;
+    }
+
+   .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+    }
+
+   .modal.active {
+      display: flex;
+    }
+
+   .modal-content {
+      border: 2px solid #ff0040;
+      padding: 2rem;
+      background: #000;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(255, 0, 64, 0.5);
+      max-width: 400px;
+    }
+
+    input {
+      background: #000;
+      border: 1px solid #ff0040;
+      color: #ff0040;
+      padding: 0.75rem;
+      font-family: inherit;
+      font-size: 14px;
+      width: 100%;
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 15px #ff0040;
+    }
+
+    button {
+      background: #000;
+      border: 2px solid #ff0040;
+      color: #ff0040;
+      padding: 0.75rem 1.5rem;
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      background: #ff0040;
+      color: #000;
+      box-shadow: 0 0 20px #ff0040;
+    }
+
+   .back {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #333;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem; font-size: 13px; }
+     .container { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 onclick="openGate()">THE CODE DOJO</h1>
+
+    <p style="text-align:center;color:#666;font-size:12px;">Click the dojo name to enter deeper</p>
+
+    <h2>section.one: Live Interview</h2>
+
+    <div class="interviewer">
+      <p>Walk me through how you handle concurrent writes to a ledger.</p>
+    </div>
+
+    <div class="candidate">
+      <p><span class="green">Encapsulation + synchronized.</span> Private volatile balance. One thread writes at a time.</p>
+      <div class="code">public class Ledger {
+    private volatile long balance;
+    
+    public synchronized void debit(long amt) {
+        if (balance >= amt) balance -= amt;
+        else throw new InsufficientFunds();
+    }
+}</div>
+      <p>No double-spends. No race conditions. Ships on 2G. See <a href="zenstack.html">Zen Stack</a> for full patterns.</p>
+    </div>
+
+    <div class="interviewer">
+      <p>You mentioned zero dependencies. Why not use Spring Boot?</p>
+    </div>
+
+    <div class="candidate">
+      <p><span class="green">Spring Boot = 50MB. JDK HttpServer = 0MB.</span></p>
+      <p>User in Gweru on 2G. 50MB never loads. 0MB loads in 1 second.</p>
+      <p>I ship to users, not to pom.xml. Zen Stack proves it: 125KB total.</p>
+      <div class="code">import com.sun.net.httpserver.HttpServer;
+// No Maven. No Gradle. Just javac.
+// Full server in zenstack.html</div>
+    </div>
+
+    <div class="interviewer">
+      <p>How do you support multiple payment providers without rewriting core logic?</p>
+    </div>
+
+    <div class="candidate">
+      <p><span class="green">Polymorphism.</span> One interface. Many rails. Swap at runtime.</p>
+      <div class="code">interface PaymentRail { void settle(Tx tx); }
+class VisaRail implements PaymentRail { }
+class EcoCashRail implements PaymentRail { }
+class ZimswitchRail implements PaymentRail { }</div>
+      <p>Add ZIPIT tomorrow. Zero changes to Ledger. That's abstraction. Live in Kumusha Wallet.</p>
+    </div>
+
+    <div class="interviewer">
+      <p>Final question. Why should we hire you over someone with a CS degree?</p>
+    </div>
+
+    <div class="candidate">
+      <p><span class="green">Because I graduated from The Sckool of Hard Knocks.</span></p>
+      <p>CS teaches theory. Hard Knocks teaches shipping when power cuts, data ends, and users can't wait.</p>
+      <p>I don't have a degree. I have 12 modules. I have Zen Stack. I have Kumusha live.</p>
+      <p><span class="white">Test me. Or deploy me. Or read the <a href="53functions.html">53 Functions</a>.</span></p>
+    </div>
+
+    <div class="back">
+      <p><a href="kuningaz.html">< exit dojo</a> | <a href="index.html">< return to portfolio</a></p>
+      <p style="color:#333;font-size:11px;margin-top:1rem;">kuningaz way — for those who learned html, css, js</p>
+    </div>
+  </div>
+
+  <!-- Secret Modal -->
+  <div class="modal" id="secretGate">
+    <div class="modal-content">
+      <h2><span class="red">CHAMBER LOCKED</span></h2>
+      <p>The 53 Functions lie beyond.</p>
+      <p><span class="green">Speak the password:</span></p>
+      <input type="text" id="gatePassword" placeholder="..." autocomplete="off" autofocus>
+      <br>
+      <button onclick="checkGate()">ENTER</button>
+      <p id="gateError" style="color:#ff0040;margin-top:1rem;display:none;">
+        Wrong. You are not yet in the ecosystem.
+      </p>
+      <p style="margin-top:2rem;">
+        <a href="#" onclick="closeGate()" style="color:#666;">retreat</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function openGate() {
+      document.getElementById('secretGate').classList.add('active');
+      document.getElementById('gatePassword').focus();
+    }
+
+    function closeGate() {
+      document.getElementById('secretGate').classList.remove('active');
+      document.getElementById('gatePassword').value = '';
+      document.getElementById('gateError').style.display = 'none';
+    }
+
+    function checkGate() {
+      const input = document.getElementById('gatePassword').value.toLowerCase().trim();
+      const error = document.getElementById('gateError');
+      
+      // Password: "53 functions" or "115362" or "kuningaz"
+      const secrets = ['53 functions', '53functions', '115362', 'kuningaz'];
+      
+      if (secrets.includes(input)) {
+        window.location.href = '53functions.html';
+      } else {
+        error.style.display = 'block';
+        document.getElementById('gatePassword').value = '';
+      }
+    }
+
+    // Enter key
+    document.getElementById('gatePassword')?.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') checkGate();
+    });
+
+    // ESC to close
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeGate();
+    });
+  </script>
+</body>
+</html>
