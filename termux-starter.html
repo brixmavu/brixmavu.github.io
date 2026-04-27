@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Termux Starter — Node + Java on Android</title>
+<title>Termux Starter — Node + Java 21 on Android | Kuningaz</title>
+<meta name="description" content="Node.js + Java 21 + Zero Dependencies on Android. Termux guide for SADC. 2GB RAM max, ARM-native, 2G-certified. Kuningaz doctrine.">
 <style>
   :root {
     --kz-gold: #D4AF37;
@@ -171,23 +172,24 @@
         <span class="tag">termux</span>
         <span class="tag">android</span>
         <span class="tag">nodejs</span>
-        <span class="tag">java</span>
+        <span class="tag">java 21</span>
         <span class="tag">zero-deps</span>
-        <span class="tag">hard-knocks</span>
+        <span class="tag">2gb-ram</span>
+        <span class="tag">arm-native</span>
       </div>
     </header>
 
     <main>
-      <p>You don't need a laptop to ship production code. Android + Termux = Linux. Linux + JDK = server. Server + zero-deps = Kuningaz. This guide gets you from F-Droid install to running Java + Node servers in 10 minutes.</p>
+      <p>You don't need a laptop to ship production code. Android + Termux = Linux. Linux + JDK = server. Server + zero-deps = Kuningaz. This guide gets you from F-Droid install to running Java 21 + Node servers in 10 minutes on 2GB RAM devices.</p>
 
       <div class="note">
-        <strong>Doctrine:</strong> This powers <a href="https://mellow-flan-4e1799.netlify.app/" target="_blank">Zen Stack</a> — 12 modules, 125KB total, 0 npm packages. Built and deployed from a phone. If it runs on 2G in Epworth, it ships.
+        <strong>Doctrine:</strong> This powers <a href="https://mellow-flan-4e1799.netlify.app/" target="_blank">Zen Stack</a> — 12 modules, 125KB total, 0 npm packages. Built and deployed from a phone. If it won't run on 2G in Epworth, it doesn't ship.
       </div>
 
       <h2>Step 1: Install Termux + Base Packages</h2>
       
       <h3>Install Termux</h3>
-      <p>Download from F-Droid only. Play Store version is dead. Avoid it.</p>
+      <p>Download from F-Droid only. Play Store version is deprecated. Avoid it.</p>
 
       <h3>Update + Core Tools</h3>
       <pre><code>pkg update && pkg upgrade
@@ -199,7 +201,7 @@ pkg install git vim curl wget</code></pre>
         <code>vim</code> — Terminal editor. Lightweight. Works offline.<br>
         <code>curl/wget</code> — HTTP clients. Test APIs, download files.<br>
         <code>nodejs</code> — JavaScript runtime. Runs .js files without browser.<br>
-        <code>openjdk-17</code> — Java Development Kit. Compiles and runs .java files.
+        <code>openjdk-21</code> — Java Development Kit. Compiles and runs .java files.
       </div>
 
       <h2>Step 2: Node.js Server — The Greyhound</h2>
@@ -219,11 +221,11 @@ const VanillaServer = require('./vanillaserver.js');
 const app = new VanillaServer();
 
 app.get('/', (req, res) => {
-  res.html('&lt;h1&gt;Greyhound Live&lt;/h1&gt;&lt;p&gt;50KB. 2G approved.&lt;/p&gt;');
+  res.html('&lt;h1&gt;Greyhound Live&lt;/h1&gt;&lt;p&gt;50KB. 2G approved. ARM-native.&lt;/p&gt;');
 });
 
 app.get('/api/status', (req, res) => {
-  res.json({ engine: 'vanilla', deps: 0, latency: 'low' });
+  res.json({ engine: 'vanilla', deps: 0, ram: '2GB max' });
 });
 
 app.listen(8000, () => console.log('http://localhost:8000'));</code></pre>
@@ -233,9 +235,9 @@ app.listen(8000, () => console.log('http://localhost:8000'));</code></pre>
 
       <h2>Step 3: Java Server — The Lion</h2>
       
-      <h3>Install JDK 17</h3>
-      <pre><code>pkg install openjdk-17</code></pre>
-      <p>Verify: <code>java -version</code> should show 17.x</p>
+      <h3>Install JDK 21</h3>
+      <pre><code>pkg install openjdk-21</code></pre>
+      <p>Verify: <code>java -version</code> should show 21.x</p>
 
       <h3>Why Java on Phone?</h3>
       <ul>
@@ -243,6 +245,7 @@ app.listen(8000, () => console.log('http://localhost:8000'));</code></pre>
         <li><strong>No runtime deps:</strong> JDK ships with <code>com.sun.net.httpserver</code>. No Spring. No Tomcat.</li>
         <li><strong>Performance:</strong> JIT compiler. Outruns interpreted scripts under load.</li>
         <li><strong>ACID:</strong> Connect to PostgreSQL with raw JDBC. He Goat approved.</li>
+        <li><strong>ARM-native:</strong> Runs on 2GB RAM devices. No emulation needed.</li>
       </ul>
 
       <h3>Compile + Run Java HTTP Server</h3>
@@ -258,12 +261,12 @@ public class Server {
     HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
     
     server.createContext("/", ex -> {
-      String res = "&lt;h1&gt;Lion Live&lt;/h1&gt;&lt;p&gt;Java 21. Zero deps. Fears no load.&lt;/p&gt;";
+      String res = "&lt;h1&gt;Lion Live&lt;/h1&gt;&lt;p&gt;Java 21. Zero deps. 2GB RAM max.&lt;/p&gt;";
       send(ex, 200, res);
     });
     
     server.createContext("/api/health", ex -> {
-      String json = "{\"status\":\"ok\",\"engine\":\"jdk\",\"deps\":0}";
+      String json = "{\"status\":\"ok\",\"engine\":\"jdk21\",\"deps\":0,\"ram\":\"2GB\"}";
       ex.getResponseHeaders().set("Content-Type", "application/json");
       send(ex, 200, json);
     });
@@ -284,10 +287,10 @@ public class Server {
 
       <pre><code>javac Server.java
 java Server</code></pre>
-      <p>Open Chrome: <code>http://127.0.0.1:8080</code>. That's raw JDK. No framework. Compiles in 200ms. Runs on 300MB RAM.</p>
+      <p>Open Chrome: <code>http://127.0.0.1:8080</code>. That's raw JDK 21. No framework. Compiles in ~300ms. Runs on 2GB RAM.</p>
 
       <div class="note">
-        <strong>Java Story:</strong> Spring Boot = 50MB minimum, 8s cold start. This = 50KB source, 200ms start. Termux can't run Spring. It can run the Lion. Hard Knocks doesn't need annotations. It needs <code>synchronized</code>.
+        <strong>Java Reality:</strong> Spring Boot = 50MB minimum, 8s cold start, needs 4GB RAM. This = 50KB source, 300ms start, runs on 2GB. Termux can't run Spring. It can run the Lion. We don't need annotations. We need <code>synchronized</code>.
       </div>
 
       <h2>Step 4: Interactive Demos</h2>
@@ -300,11 +303,11 @@ java Server</code></pre>
       <ol>
         <li><strong>Static sites:</strong> Upload <code>.html</code> files to Netlify. Drag-drop. Done.</li>
         <li><strong>Node API:</strong> Deploy to Render/Railway. Set start command: <code>node server.js</code></li>
-        <li><strong>Java API:</strong> Compile to JAR: <code>jar cfe app.jar Server *.class</code>. Deploy to Fly.io or any VPS.</li>
+        <li><strong>Java API:</strong> Compile to JAR: <code>jar cfe app.jar Server *.class</code>. Deploy to Fly.io or any VPS with JDK 21.</li>
       </ol>
 
       <div class="note">
-        <strong>For the kin:</strong> This stack runs on data bundles, not fiber. On 2G, not 5G. On phones, not MacBooks. SADC first. Silicon Valley never. We build our own rails.
+        <strong>For the kin:</strong> This stack runs on data bundles, not fiber. On 2G, not 5G. On phones, not MacBooks. SADC first. Silicon Valley never. We build our own rails. From the kin, for the kin.
       </div>
 
       <a href="https://gitlab.com/brixtonmavu/zen-stack" class="btn" target="_blank">Get Zen Stack Source</a>
@@ -312,7 +315,7 @@ java Server</code></pre>
     </main>
 
     <footer>
-      <p>Termux + JDK + Node = Kingdom • Kuningaz Doctrine • Hard Knocks Certified</p>
+      <p>Termux + JDK 21 + Node = Kingdom • Kuningaz Doctrine • 2GB RAM Certified</p>
       <p><a href="kuningaz.html">< back to kuningaz</a> • <a href="index.html">home</a></p>
     </footer>
   </div>

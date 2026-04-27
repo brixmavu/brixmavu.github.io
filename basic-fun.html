@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>53 Functions — Unit 115362 — Zen Stack</title>
+  <title>Basic Functions — Kuningaz</title>
+  <meta name="description" content="53 JavaScript functions. Node.js + microtest. Zero dependencies. TDD fundamentals for the kin.">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -17,7 +18,7 @@
       min-height: 100vh;
     }
 
-  .container {
+ .container {
       max-width: 1000px;
       margin: 0 auto;
       border: 2px solid #ffd700;
@@ -26,8 +27,8 @@
       box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
     }
 
-  .container::before {
-      content: '53functions.exe — UNIT_115362';
+ .container::before {
+      content: 'basic-fun.exe — KUNINGAZ';
       position: absolute;
       top: -12px;
       left: 20px;
@@ -68,10 +69,10 @@
       font-size: 16px;
     }
 
-  .green { color: #00ff41; font-weight: 700; }
-  .white { color: #ffffff; font-weight: 700; }
-  .red { color: #ff0040; font-weight: 700; }
-  .gold { color: #ffd700; font-weight: 700; }
+ .green { color: #00ff41; font-weight: 700; }
+ .white { color: #ffffff; font-weight: 700; }
+ .red { color: #ff0040; font-weight: 700; }
+ .gold { color: #ffd700; font-weight: 700; }
 
     a {
       color: #00ff41;
@@ -96,7 +97,7 @@
     }
 
    /* TLN BASE — KUNINGAZ THEME */
-  .tln-active,.tln-wrapper,.tln-line {
+ .tln-active,.tln-wrapper,.tln-line {
       margin: 0;
       border: 0;
       padding: 0;
@@ -106,7 +107,7 @@
       list-style: none;
     }
 
-  .tln-active {
+ .tln-active {
       display: inline-block;
       padding: 1rem;
       width: calc(100% - 4rem);
@@ -125,7 +126,7 @@
       white-space: pre;
     }
 
-  .tln-wrapper {
+ .tln-wrapper {
       width: 4rem;
       padding: 1rem 0.5rem;
       height: 100%;
@@ -136,7 +137,7 @@
       border-right: 1px solid #00ff41;
     }
 
-  .tln-line {
+ .tln-line {
       width: 100%;
       display: block;
       text-align: right;
@@ -146,39 +147,56 @@
       font-variant-numeric: tabular-nums;
     }
 
-  .tln-line::before {
+ .tln-line::before {
       counter-increment: line;
       content: counter(line);
       font-size: 16px;
       user-select: none;
     }
 
-  .tln-wrapper {
+ .tln-wrapper {
       counter-reset: line;
     }
 
-   /* STATIC JS HIGHLIGHTING VIA CSS — KUNINGAZ TRICK */
-  .tln-active {
-      /* Keywords */
-      background-image:
-        linear-gradient(90deg, transparent 0%, transparent 100%);
-      /* We fake it with text-shadow for key tokens. Real highlighting needs JS lib. */
-      /* This gives you green base + red numbers + gold comments vibe */
+   /* SYNTAX HIGHLIGHT OVERLAY - ZERO DEP */
+ .highlight-overlay {
+      position: absolute;
+      top: 0;
+      left: 4rem;
+      right: 0;
+      bottom: 0;
+      padding: 1rem;
+      pointer-events: none;
+      white-space: pre;
+      overflow: hidden;
+      font-family: 'Courier New', 'Monaco', monospace;
+      font-size: 16px;
+      line-height: 1.6;
+      color: transparent;
+      z-index: 1;
     }
+ .tln-active {
+      position: relative;
+      z-index: 2;
+      background: transparent;
+      color: #00ff41;
+      caret-color: #00ff41;
+    }
+ .hl-keyword { color: #ff79c6; }
+ .hl-string { color: #f1fa8c; }
+ .hl-comment { color: #6272a4; font-style: italic; }
+ .hl-number { color: #bd93f9; }
+ .hl-function { color: #50fa7b; }
+ .hl-operator { color: #ff5555; }
 
-   /* If you type these, they auto-color via browser */
-   /* function, const, let, var = green by default */
-   /* Numbers will be red via line numbers */
-   /* Comments start with // = dimmer */
-
-  .controls {
+ .controls {
       display: flex;
       gap: 1rem;
       margin: 1rem 0;
       flex-wrap: wrap;
     }
 
-  .btn {
+ .btn {
       background: #000;
       border: 2px solid #00ff41;
       color: #00ff41;
@@ -190,24 +208,24 @@
       transition: all 0.2s;
     }
 
-  .btn:hover {
+ .btn:hover {
       background: #00ff41;
       color: #000;
       box-shadow: 0 0 20px #00ff41;
     }
 
-  .btn-red {
+ .btn-red {
       border-color: #ff0040;
       color: #ff0040;
     }
 
-  .btn-red:hover {
+ .btn-red:hover {
       background: #ff0040;
       color: #000;
       box-shadow: 0 0 20px #ff0040;
     }
 
-  .output {
+ .output {
       border: 2px solid #ffd700;
       padding: 1rem;
       margin: 1rem 0;
@@ -219,14 +237,14 @@
       word-break: break-all;
     }
 
-  .back {
+ .back {
       margin-top: 3rem;
       padding-top: 1rem;
       border-top: 1px solid #333;
       text-align: center;
     }
 
-  .qual {
+ .qual {
       border: 1px solid #ffd700;
       padding: 1rem;
       margin: 1rem 0;
@@ -235,7 +253,7 @@
       font-size: 14px;
     }
 
-  .fn-list {
+ .fn-list {
       border: 1px solid #00ff41;
       padding: 1rem;
       margin: 1rem 0;
@@ -244,45 +262,46 @@
       overflow-y: auto;
    }
 
-  .fn-item {
+ .fn-item {
       color: #00ff41;
       cursor: pointer;
       padding: 0.25rem 0;
       border-bottom: 1px dashed #333;
    }
 
-  .fn-item:hover {
+ .fn-item:hover {
       color: #000;
       background: #00ff41;
    }
 
     @media (max-width: 600px) {
       body { padding: 1rem; font-size: 15px; }
-    .container { padding: 1rem; }
+   .container { padding: 1rem; }
       h1 { font-size: 20px; }
-    .tln-active,.tln-line { font-size: 15px; }
+   .tln-active,.tln-line { font-size: 15px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>53 FUNCTIONS</h1>
+    <h1>BASIC FUNCTIONS</h1>
 
     <div class="qual">
-      <span class="gold">UNIT 115362</span> — ZERO DEPENDENCIES — TERMUX CERTIFIED<br>
-      <span class="green">53 functions</span> × <span class="white">1 file</span> × <span class="red">0 npm</span> = <span class="gold">∞ POWER</span>
+      <span class="gold">KUNINGAZ</span> — ZERO DEPENDENCIES — TERMUX CERTIFIED<br>
+      <span class="green">53 functions</span> × <span class="white">1 file</span> × <span class="red">0 npm</span> = <span class="gold">TDD</span>
     </div>
 
-    <p>Every function below runs on Android. No build. No bundle. Copy, paste, execute. This is the Hard Knocks stdlib.</p>
+    <p>Every function below runs on Android. No build. No bundle. Copy, paste, execute. This is the Hard Knocks stdlib. Source only — test in your terminal.</p>
 
     <h2>section.one: Live Editor</h2>
-    <p>Click a function below to load it. Edit it. Run it. All 53 fit in <span class="green">64KB</span>.</p>
+    <p>Click a function below to load it. Edit it. Run it. All 53 fit in <span class="green">64KB</span>. Syntax highlighted.</p>
 
     <div class="fn-list" id="fnList">
       <!-- Injected by JS -->
     </div>
 
     <div id="wrapper">
+        <div class="highlight-overlay" id="highlight"></div>
         <textarea id="test" spellcheck="false">// Click a function above to load
 // Or write your own zero-dep code
 
@@ -307,8 +326,9 @@ function kuningaz(x) {
     <p>
       <span class="green">[1]</span> <span class="white">NO IMPORTS.</span> If you need lodash, you need discipline.<br>
       <span class="green">[2]</span> <span class="white">NO TYPES.</span> JavaScript is the type. Trust the runtime.<br>
-      <span class="green">[3]</span> <span class="white">NO ASYNC.</span> Callbacks are the way. Promises are for browsers.<br>
-      <span class="green">[4]</span> <span class="white">NO CLASS.</span> Function is king. Prototype is queen. This is closure.
+      <span class="green">[3]</span> <span class="white">NO ASYNC.</span> Callbacks are the way. Promises for browsers only.<br>
+      <span class="green">[4]</span> <span class="white">NO CLASS.</span> Function is king. Prototype is queen. This is closure.<br>
+      <span class="green">[5]</span> <span class="white">TEST FIRST.</span> Node + microtest. If it breaks, fix the test.
     </p>
 
     <div class="back">
@@ -354,19 +374,54 @@ function kuningaz(x) {
         if ((+ta.scrollLeft == 10 && (e.keyCode == 37 || e.which == 37 || e.code == "ArrowLeft" || e.key == "ArrowLeft")) || e.keyCode == 36 || e.which == 36 || e.code == "Home" || e.key == "Home" || e.keyCode == 13 || e.which == 13 || e.code == "Enter" || e.key == "Enter" || e.code == "NumpadEnter")
           ta.scrollLeft = 0;
         updateLineNumbers(ta, el);
+        highlightSyntax();
       };
       for (let i = __change_evts.length - 1; i >= 0; i--) {
         ta.addEventListener(__change_evts[i], __change_hdlr(ta, el));
       }
 
       const __scroll_evts = ["change","mousewheel","scroll"];
-      const __scroll_hdlr = (ta, el) => () => { el.scrollTop = ta.scrollTop; };
+      const __scroll_hdlr = (ta, el) => () => {
+        el.scrollTop = ta.scrollTop;
+        document.getElementById('highlight').scrollTop = ta.scrollTop;
+        document.getElementById('highlight').scrollLeft = ta.scrollLeft;
+      };
       for (let i = __scroll_evts.length - 1; i >= 0; i--) {
         ta.addEventListener(__scroll_evts[i], __scroll_hdlr(ta, el));
       }
     }
 
-    // --- 53 FUNCTIONS ---
+    // --- SYNTAX HIGHLIGHTING - ZERO DEP ---
+    function highlightSyntax() {
+      const ta = document.getElementById('test');
+      const overlay = document.getElementById('highlight');
+      let code = ta.value;
+
+      // Escape HTML
+      code = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+      // Comments
+      code = code.replace(/(\/\/.*$)/gm, '<span class="hl-comment">$1</span>');
+
+      // Strings
+      code = code.replace(/('.*?'|".*?"|`.*?`)/g, '<span class="hl-string">$1</span>');
+
+      // Numbers
+      code = code.replace(/\b(\d+\.?\d*)\b/g, '<span class="hl-number">$1</span>');
+
+      // Keywords
+      code = code.replace(/\b(function|const|let|var|return|if|else|for|while|switch|case|break|continue|try|catch|throw|new|this|typeof|instanceof|in|of|true|false|null|undefined)\b/g, '<span class="hl-keyword">$1</span>');
+
+      // Function names
+      code = code.replace(/\b([a-zA-Z_]\w*)\s*(?=\()/g, '<span class="hl-function">$1</span>');
+
+      // Operators
+      code = code.replace(/([+\-*\/=<>!&|%]+)/g, '<span class="hl-operator">$1</span>');
+
+      overlay.innerHTML = code;
+    }
+
+    // --- 53 FUNCTIONS - PATCHED ---
     const FNS = {
       add: `function add(a, b) { return a + b; }`,
       sub: `function sub(a, b) { return a - b; }`,
@@ -383,20 +438,20 @@ function kuningaz(x) {
       not: `function not(a) { return!a; }`,
       and: `function and(a, b) { return a && b; }`,
       or: `function or(a, b) { return a || b; }`,
-      len: `function len(x) { return x.length; }`,
-      head: `function head(arr) { return arr[0]; }`,
-      tail: `function tail(arr) { return arr.slice(1); }`,
-      last: `function last(arr) { return arr[arr.length - 1]; }`,
-      init: `function init(arr) { return arr.slice(0, -1); }`,
-      rev: `function rev(arr) { return arr.slice().reverse(); }`,
-      sum: `function sum(arr) { return arr.reduce((a,b) => a + b, 0); }`,
-      prod: `function prod(arr) { return arr.reduce((a,b) => a * b, 1); }`,
-      max: `function max(arr) { return Math.max(...arr); }`,
-      min: `function min(arr) { return Math.min(...arr); }`,
+      len: `function len(x) { return x && x.length; }`,
+      head: `function head(arr) { return arr && arr[0]; }`,
+      tail: `function tail(arr) { return arr && arr.slice(1); }`,
+      last: `function last(arr) { return arr && arr[arr.length - 1]; }`,
+      init: `function init(arr) { return arr && arr.slice(0, -1); }`,
+      rev: `function rev(arr) { return arr && arr.slice().reverse(); }`,
+      sum: `function sum(arr) { return arr && arr.reduce((a,b) => a + b, 0); }`,
+      prod: `function prod(arr) { return arr && arr.reduce((a,b) => a * b, 1); }`,
+      max: `function max(arr) { return arr && Math.max(...arr); }`,
+      min: `function min(arr) { return arr && Math.min(...arr); }`,
       range: `function range(n) { return [...Array(n).keys()]; }`,
-      map: `function map(fn, arr) { return arr.map(fn); }`,
-      filter: `function filter(fn, arr) { return arr.filter(fn); }`,
-      reduce: `function reduce(fn, init, arr) { return arr.reduce(fn, init); }`,
+      map: `function map(fn, arr) { return arr && arr.map(fn); }`,
+      filter: `function filter(fn, arr) { return arr && arr.filter(fn); }`,
+      reduce: `function reduce(fn, init, arr) { return arr && arr.reduce(fn, init); }`,
       pipe: `function pipe(...fns) { return x => fns.reduce((v,f) => f(v), x); }`,
       comp: `function comp(...fns) { return x => fns.reduceRight((v,f) => f(v), x); }`,
       curry: `function curry(fn) { return a => b => fn(a,b); }`,
@@ -409,17 +464,17 @@ function kuningaz(x) {
       num: `function num(x) { return Number(x); }`,
       bool: `function bool(x) { return Boolean(x); }`,
       isNil: `function isNil(x) { return x == null; }`,
-      isNum: `function isNum(x) { return typeof x === 'number'; }`,
+      isNum: `function isNum(x) { return typeof x === 'number' &&!isNaN(x); }`,
       isStr: `function isStr(x) { return typeof x === 'string'; }`,
       isArr: `function isArr(x) { return Array.isArray(x); }`,
       isFn: `function isFn(x) { return typeof x === 'function'; }`,
-      isObj: `function isObj(x) { return x && typeof x === 'object'; }`,
-      keys: `function keys(obj) { return Object.keys(obj); }`,
-      vals: `function vals(obj) { return Object.values(obj); }`,
-      pairs: `function pairs(obj) { return Object.entries(obj); }`,
-      get: `function get(k, obj) { return obj[k]; }`,
-      set: `function set(k, v, obj) { obj[k] = v; return obj; }`,
-      has: `function has(k, obj) { return k in obj; }`,
+      isObj: `function isObj(x) { return x && typeof x === 'object' &&!Array.isArray(x); }`,
+      keys: `function keys(obj) { return obj && Object.keys(obj); }`,
+      vals: `function vals(obj) { return obj && Object.values(obj); }`,
+      pairs: `function pairs(obj) { return obj && Object.entries(obj); }`,
+      get: `function get(k, obj) { return obj && obj[k]; }`,
+      set: `function set(k, v, obj) { if(obj) obj[k] = v; return obj; }`,
+      has: `function has(k, obj) { return obj && k in obj; }`,
       log: `function log(x) { console.log(x); return x; }`,
       tap: `function tap(fn) { return x => { fn(x); return x; }; }`
     };
@@ -427,6 +482,7 @@ function kuningaz(x) {
     // --- EDITOR INIT ---
     document.addEventListener('DOMContentLoaded', () => {
       appendLineNumbers();
+      highlightSyntax();
 
       // Populate function list
       const fnList = document.getElementById('fnList');
@@ -442,7 +498,7 @@ function kuningaz(x) {
     // --- EDITOR ACTIONS ---
     window.loadFn = function(name) {
       const ta = document.getElementById('test');
-      ta.value = FNS[name] + '\n\n// Try: ' + name + '(1, 2)';
+      ta.value = FNS[name] + '\n\n// Test: ' + name + '(1, 2)';
       ta.dispatchEvent(new Event('input'));
     }
 
@@ -456,9 +512,12 @@ function kuningaz(x) {
       const code = document.getElementById('test').value;
       const out = document.getElementById('output');
       try {
-        // Eval in function scope to capture last expression
-        const result = (new Function(code + '\nreturn ' + code.trim().split('\n').pop()))();
-        out.textContent = 'Result: ' + String(result);
+        // Isolate scope, eval last line as expression
+        const lines = code.trim().split('\n').filter(l => l.trim() &&!l.trim().startsWith('//'));
+        const lastLine = lines[lines.length - 1];
+        const fn = new Function(code + '\nreturn ' + lastLine);
+        const result = fn();
+        out.textContent = 'Result: ' + JSON.stringify(result);
         out.style.color = '#ffd700';
       } catch(e) {
         out.textContent = 'Error: ' + e.message;
@@ -471,6 +530,7 @@ function kuningaz(x) {
       ta.value = '// Hard Knocks Editor\n// Write zero-dep JS\n\n';
       ta.dispatchEvent(new Event('input'));
       document.getElementById('output').textContent = 'Output appears here...';
+      document.getElementById('output').style.color = '#ffd700';
     }
   </script>
 </body>
