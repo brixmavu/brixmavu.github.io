@@ -18,7 +18,7 @@
       min-height: 100vh;
     }
 
- .container {
+   .container {
       max-width: 1000px;
       margin: 0 auto;
       border: 2px solid #ffd700;
@@ -27,7 +27,7 @@
       box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
     }
 
- .container::before {
+   .container::before {
       content: 'basic-fun.exe — KUNINGAZ';
       position: absolute;
       top: -12px;
@@ -69,10 +69,10 @@
       font-size: 16px;
     }
 
- .green { color: #00ff41; font-weight: 700; }
- .white { color: #ffffff; font-weight: 700; }
- .red { color: #ff0040; font-weight: 700; }
- .gold { color: #ffd700; font-weight: 700; }
+   .green { color: #00ff41; font-weight: 700; }
+   .white { color: #ffffff; font-weight: 700; }
+   .red { color: #ff0040; font-weight: 700; }
+   .gold { color: #ffd700; font-weight: 700; }
 
     a {
       color: #00ff41;
@@ -85,7 +85,7 @@
       color: #000000;
     }
 
-   /* EDITOR WRAPPER */
+    /* EDITOR WRAPPER */
     #wrapper {
       border: 2px solid #00ff41;
       position: relative;
@@ -96,107 +96,75 @@
       box-shadow: inset 0 0 20px rgba(0, 255, 65, 0.1);
     }
 
-   /* TLN BASE — KUNINGAZ THEME */
- .tln-active,.tln-wrapper,.tln-line {
-      margin: 0;
-      border: 0;
-      padding: 0;
-      outline: 0;
-      box-sizing: border-box;
-      vertical-align: top;
-      list-style: none;
-    }
+/* TLN BASE — KUNINGAZ THEME - PATCHED */
+.tln-active,.tln-wrapper,.tln-line {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  vertical-align: top;
+  list-style: none;
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-size: 16px;
+  line-height: 1.6;
+}
 
- .tln-active {
-      display: inline-block;
-      padding: 1rem;
-      width: calc(100% - 4rem);
-      height: 100%;
-      font-size: 16px;
-      line-height: 1.6;
-      font-family: 'Courier New', 'Monaco', monospace;
-      word-break: break-all;
-      border: none;
-      background-color: #000000;
-      color: #00ff41;
-      resize: none;
-      overflow-wrap: normal;
-      overflow-x: auto;
-      overflow-y: auto;
-      white-space: pre;
-    }
+.tln-active {
+  display: inline-block;
+  padding: 16px 16px 16px 0; /* Top Right Bottom Left - no left pad */
+  width: calc(100% - 4rem);
+  height: 100%;
+  word-break: break-all;
+  border: none;
+  background-color: #000000;
+  color: #00ff41;
+  resize: none;
+  overflow-wrap: normal;
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: pre;
+  caret-color: #00ff41;
+}
 
- .tln-wrapper {
-      width: 4rem;
-      padding: 1rem 0.5rem;
-      height: 100%;
-      word-break: break-all;
-      overflow: hidden;
-      display: inline-block;
-      background: #0a0a0a;
-      border-right: 1px solid #00ff41;
-    }
+.tln-wrapper {
+  width: 4rem;
+  padding: 16px 8px 16px 8px; /* Match textarea top/bottom exactly */
+  height: 100%;
+  word-break: break-all;
+  overflow: hidden;
+  display: inline-block;
+  background: #0a0a0a;
+  border-right: 1px solid #00ff41;
+}
 
- .tln-line {
-      width: 100%;
-      display: block;
-      text-align: right;
-      line-height: 1.6;
-      font-size: 16px;
-      color: #ff0040;
-      font-variant-numeric: tabular-nums;
-    }
+.tln-line {
+  width: 100%;
+  display: block;
+  text-align: right;
+  color: #ff0040;
+  font-variant-numeric: tabular-nums;
+  padding-right: 8px; /* Space before textarea */
+}
 
- .tln-line::before {
-      counter-increment: line;
-      content: counter(line);
-      font-size: 16px;
-      user-select: none;
-    }
+.tln-line::before {
+  counter-increment: line;
+  content: counter(line);
+  user-select: none;
+}
 
- .tln-wrapper {
-      counter-reset: line;
-    }
+.tln-wrapper {
+  counter-reset: line;
+}
 
-   /* SYNTAX HIGHLIGHT OVERLAY - ZERO DEP */
- .highlight-overlay {
-      position: absolute;
-      top: 0;
-      left: 4rem;
-      right: 0;
-      bottom: 0;
-      padding: 1rem;
-      pointer-events: none;
-      white-space: pre;
-      overflow: hidden;
-      font-family: 'Courier New', 'Monaco', monospace;
-      font-size: 16px;
-      line-height: 1.6;
-      color: transparent;
-      z-index: 1;
-    }
- .tln-active {
-      position: relative;
-      z-index: 2;
-      background: transparent;
-      color: #00ff41;
-      caret-color: #00ff41;
-    }
- .hl-keyword { color: #ff79c6; }
- .hl-string { color: #f1fa8c; }
- .hl-comment { color: #6272a4; font-style: italic; }
- .hl-number { color: #bd93f9; }
- .hl-function { color: #50fa7b; }
- .hl-operator { color: #ff5555; }
-
- .controls {
+   .controls {
       display: flex;
       gap: 1rem;
       margin: 1rem 0;
       flex-wrap: wrap;
     }
 
- .btn {
+   .btn {
       background: #000;
       border: 2px solid #00ff41;
       color: #00ff41;
@@ -208,24 +176,24 @@
       transition: all 0.2s;
     }
 
- .btn:hover {
+   .btn:hover {
       background: #00ff41;
       color: #000;
       box-shadow: 0 0 20px #00ff41;
     }
 
- .btn-red {
+   .btn-red {
       border-color: #ff0040;
       color: #ff0040;
     }
 
- .btn-red:hover {
+   .btn-red:hover {
       background: #ff0040;
       color: #000;
       box-shadow: 0 0 20px #ff0040;
     }
 
- .output {
+   .output {
       border: 2px solid #ffd700;
       padding: 1rem;
       margin: 1rem 0;
@@ -237,14 +205,14 @@
       word-break: break-all;
     }
 
- .back {
+   .back {
       margin-top: 3rem;
       padding-top: 1rem;
       border-top: 1px solid #333;
       text-align: center;
     }
 
- .qual {
+   .qual {
       border: 1px solid #ffd700;
       padding: 1rem;
       margin: 1rem 0;
@@ -253,32 +221,32 @@
       font-size: 14px;
     }
 
- .fn-list {
+   .fn-list {
       border: 1px solid #00ff41;
       padding: 1rem;
       margin: 1rem 0;
       background: #001a00;
       max-height: 200px;
       overflow-y: auto;
-   }
+    }
 
- .fn-item {
+   .fn-item {
       color: #00ff41;
       cursor: pointer;
       padding: 0.25rem 0;
       border-bottom: 1px dashed #333;
-   }
+    }
 
- .fn-item:hover {
+   .fn-item:hover {
       color: #000;
       background: #00ff41;
-   }
+    }
 
     @media (max-width: 600px) {
       body { padding: 1rem; font-size: 15px; }
-   .container { padding: 1rem; }
+     .container { padding: 1rem; }
       h1 { font-size: 20px; }
-   .tln-active,.tln-line { font-size: 15px; }
+     .tln-active,.tln-line { font-size: 15px; }
     }
   </style>
 </head>
@@ -294,14 +262,13 @@
     <p>Every function below runs on Android. No build. No bundle. Copy, paste, execute. This is the Hard Knocks stdlib. Source only — test in your terminal.</p>
 
     <h2>section.one: Live Editor</h2>
-    <p>Click a function below to load it. Edit it. Run it. All 53 fit in <span class="green">64KB</span>. Syntax highlighted.</p>
+    <p>Click a function below to load it. Edit it. Run it. All 53 fit in <span class="green">64KB</span>. Pure text.</p>
 
     <div class="fn-list" id="fnList">
       <!-- Injected by JS -->
     </div>
 
     <div id="wrapper">
-        <div class="highlight-overlay" id="highlight"></div>
         <textarea id="test" spellcheck="false">// Click a function above to load
 // Or write your own zero-dep code
 
@@ -374,7 +341,6 @@ function kuningaz(x) {
         if ((+ta.scrollLeft == 10 && (e.keyCode == 37 || e.which == 37 || e.code == "ArrowLeft" || e.key == "ArrowLeft")) || e.keyCode == 36 || e.which == 36 || e.code == "Home" || e.key == "Home" || e.keyCode == 13 || e.which == 13 || e.code == "Enter" || e.key == "Enter" || e.code == "NumpadEnter")
           ta.scrollLeft = 0;
         updateLineNumbers(ta, el);
-        highlightSyntax();
       };
       for (let i = __change_evts.length - 1; i >= 0; i--) {
         ta.addEventListener(__change_evts[i], __change_hdlr(ta, el));
@@ -383,42 +349,10 @@ function kuningaz(x) {
       const __scroll_evts = ["change","mousewheel","scroll"];
       const __scroll_hdlr = (ta, el) => () => {
         el.scrollTop = ta.scrollTop;
-        document.getElementById('highlight').scrollTop = ta.scrollTop;
-        document.getElementById('highlight').scrollLeft = ta.scrollLeft;
       };
       for (let i = __scroll_evts.length - 1; i >= 0; i--) {
         ta.addEventListener(__scroll_evts[i], __scroll_hdlr(ta, el));
       }
-    }
-
-    // --- SYNTAX HIGHLIGHTING - ZERO DEP ---
-    function highlightSyntax() {
-      const ta = document.getElementById('test');
-      const overlay = document.getElementById('highlight');
-      let code = ta.value;
-
-      // Escape HTML
-      code = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-      // Comments
-      code = code.replace(/(\/\/.*$)/gm, '<span class="hl-comment">$1</span>');
-
-      // Strings
-      code = code.replace(/('.*?'|".*?"|`.*?`)/g, '<span class="hl-string">$1</span>');
-
-      // Numbers
-      code = code.replace(/\b(\d+\.?\d*)\b/g, '<span class="hl-number">$1</span>');
-
-      // Keywords
-      code = code.replace(/\b(function|const|let|var|return|if|else|for|while|switch|case|break|continue|try|catch|throw|new|this|typeof|instanceof|in|of|true|false|null|undefined)\b/g, '<span class="hl-keyword">$1</span>');
-
-      // Function names
-      code = code.replace(/\b([a-zA-Z_]\w*)\s*(?=\()/g, '<span class="hl-function">$1</span>');
-
-      // Operators
-      code = code.replace(/([+\-*\/=<>!&|%]+)/g, '<span class="hl-operator">$1</span>');
-
-      overlay.innerHTML = code;
     }
 
     // --- 53 FUNCTIONS - PATCHED ---
@@ -482,7 +416,6 @@ function kuningaz(x) {
     // --- EDITOR INIT ---
     document.addEventListener('DOMContentLoaded', () => {
       appendLineNumbers();
-      highlightSyntax();
 
       // Populate function list
       const fnList = document.getElementById('fnList');

@@ -1,18 +1,34 @@
 // --- CONFIG ---
 const projects = [
   {
+    name: 'University Campus OS',
+    description: '25-line application kernel. Runs full university ERP at 5MB heap. Offline-first, Node.js 18+. Built-in content moderation. Runs on Android/Termux. 8 modules: Auth, User, Manager, Admin, Board, Forum, Events, Teams.',
+    tags: ['Node.js', '25 Lines', '5MB Heap', 'Offline-First', 'Termux', 'Zero Framework'],
+    link: 'https://github.com/brixmavu/university-campus-os',
+    demo: 'https://university-campus-os.onrender.com',
+    featured: true
+  },
+  {
+    name: 'E\'khaya Dashboard',
+    description: 'Real-time analytics for Kumusha Wallet across SADC. Vanilla JS, zero framework. Live KPIs: Volume, Users, Success Rate, Agent Network. Regional filtering: ZW, SA, ZM, MW. SVG icon system. 87KB bundle, <1s load on 3G.',
+    tags: ['Vanilla JS', 'Fintech', 'SADC', '87KB', 'SVG Icons', 'Dark Mode'],
+    link: 'https://gitlab.com/kumusha/ekhaya-dashboard',
+    demo: 'https://ekhaya-dashboard.vercel.app',
+    featured: false
+  },
+  {
     name: 'Vista High Java',
     description: 'Zero-dependency Java 21 curriculum for Termux. Teaches `javac` + HttpServer on $50 Android phones. Kuningaz: from the kin, for the kin. Dedicated to Vista High Class of 2006.',
     tags: ['Java 21', 'HttpServer', 'Termux', 'Zero Deps', 'Education'],
     link: 'https://gitlab.com/kuningaz1/vista-high-java',
     demo: 'https://venerable-tiramisu-c6048f.netlify.app',
-    featured: true
+    featured: false
   },
   {
     name: 'Kumusha Wallet',
     description: 'Regional remittance + trade finance for Southern Africa. Pure Java 21 backend, zero dependencies. 3-factor auth: App + Agent + Admin. Demo — Local Backend via Cloudflare Tunnel.',
     tags: ['Java 21', 'Fintech', 'Security', 'Demo', '2G-Certified'],
-    link: 'https://github.com/brixmavu/kumusha-wallet-ui',
+    link: 'https://gitlab.com/kumusha/kumusha-wallet-ui',
     demo: 'https://tranquil-speculoos-caa2fa.netlify.app'
   },
   {
@@ -33,17 +49,25 @@ const projects = [
     name: 'Maths Dojo',
     description: 'Interactive mathematics platform. Vanilla JS, <50KB, free forever. Proves ability to ship polished UX without frameworks. Runs on calculators.',
     tags: ['Vanilla JS', 'Education', 'Performance', 'UX', '<50KB'],
-    link: 'https://github.com/brixmavu/maths-dojo',
-    demo: 'https://admirable-seahorse-8c8614.netlify.app/'
+    link: '', // Local only. Add GitHub URL when pushed.
+    demo: null
   }
 ];
+
+function getRepoIcon(url) {
+  if (!url) return 'icon-git';
+  if (url.includes('gitlab.com')) return 'icon-gitlab';
+  if (url.includes('github.com')) return 'icon-github';
+  return 'icon-git';
+}
 
 function generateProjectCard(project) {
   const projectCard = document.createElement('div');
   projectCard.className = 'project-card';
   
-  // Kuningaz tag for featured
   const kuningazBadge = project.featured ? `<span class="tag" style="background:#ffd700;color:#000;">Kuningaz</span>` : '';
+  const repoIcon = getRepoIcon(project.link);
+  const hasLink = project.link && project.link.trim() !== '';
   
   projectCard.innerHTML = `
     <div class="project-content">
@@ -55,9 +79,15 @@ function generateProjectCard(project) {
       </div>
     </div>
     <div class="project-footer">
-      <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="project-link">
-        <span class="icon icon-gitlab"></span> Source
-      </a>
+      ${hasLink ? `
+        <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="project-link">
+          <span class="icon ${repoIcon}"></span> Source
+        </a>
+      ` : `
+        <span class="project-link" style="color:#666;">
+          <span class="icon ${repoIcon}"></span> Local
+        </span>
+      `}
       ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="project-link" style="color:#3b82f6;">Live →</a>` : '<span class="project-link" style="color:#666;">Source Only</span>'}
     </div>
   `;
@@ -68,7 +98,6 @@ function renderProjects() {
   const projectsGrid = document.getElementById('projects-grid');
   if (!projectsGrid) return;
   projectsGrid.innerHTML = '';
-  // Sort: featured first
   const sorted = [...projects].sort((a,b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
   sorted.forEach(p => projectsGrid.appendChild(generateProjectCard(p)));
 }

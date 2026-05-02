@@ -170,7 +170,6 @@ body {
 }
 
 /* Icons */
-/* Icons */
 .icon {
     display: inline-block;
     width: 1.25rem;
@@ -190,6 +189,13 @@ body {
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M23.955 13.587l-1.342-4.135-2.664-8.189a.455.455 0 0 0-.867 0L16.418 9.45H7.582L4.918 1.263a.455.455 0 0 0-.867 0L1.387 9.452 0.045 13.587a.924.924 0 0 0 .336 1.032L12 23.492l11.619-8.873a.922.922 0 0 0 .336-1.032z'/%3E%3C/svg%3E") no-repeat center;
     mask-size: contain;
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M23.955 13.587l-1.342-4.135-2.664-8.189a.455.455 0 0 0-.867 0L16.418 9.45H7.582L4.918 1.263a.455.455 0 0 0-.867 0L1.387 9.452 0.045 13.587a.924.924 0 0 0 .336 1.032L12 23.492l11.619-8.873a.922.922 0 0 0 .336-1.032z'/%3E%3C/svg%3E") no-repeat center;
+    -webkit-mask-size: contain;
+}
+
+.icon-git {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.78.45-1.17 1.38-.93 2.23l-1.69 1.7-5.78-5.79c-.4-.4-.4-1.04 0-1.42M13.07 2.04c.4-.4 1.04-.4 1.42 0l5.78 5.79c.4.4.4 1.04 0 1.42L14.5 15.04l-1.7c.85-.24 1.78-.15 2.23-.93h-5.54c-.45.78-1.38 1.17-2.23.93l-1.7 1.7 5.79 5.78c.4.4 1.04.4 1.42 0l5.79-5.78c.4-.4.4-1.04 0-1.42L12.47 2.04'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.78.45-1.17 1.38-.93 2.23l-1.69 1.7-5.78-5.79c-.4-.4-.4-1.04 0-1.42M13.07 2.04c.4-.4 1.04-.4 1.42 0l5.78 5.79c.4.4.4 1.04 0 1.42L14.5 15.04l-1.7-1.7c.85-.24 1.78-.15 2.23-.93h-5.54c-.45.78-1.38 1.17-2.23.93l-1.7 5.79 5.78c.4.4 1.04.4 1.42 0l5.79-5.78c.4-.4.4-1.04 0-1.42L12.47 2.04'/%3E%3C/svg%3E") no-repeat center;
     -webkit-mask-size: contain;
 }
 
