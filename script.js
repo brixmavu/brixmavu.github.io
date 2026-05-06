@@ -2,18 +2,18 @@
 const projects = [
   {
     name: 'University Campus OS',
-    description: '25-line application kernel. Runs full university ERP at 5MB heap. Offline-first, Node.js 18+. Built-in content moderation. Runs on Android/Termux. 8 modules: Auth, User, Manager, Admin, Board, Forum, Events, Teams.',
-    tags: ['Node.js', '25 Lines', '5MB Heap', 'Offline-First', 'Termux', 'Zero Framework'],
-    link: 'https://github.com/brixmavu/university-campus-os',
-    demo: 'https://university-campus-os.onrender.com',
+    description: 'Full academic management system for 5 roles: Student, Lecturer, HOD, Janitor, SuperAdmin. Vanilla JS + Node.js HTTP server. Offline-first with localStorage. Modules: Assignments, Homework, Timetable, Library, Activities, Labs, Messages, Analytics. Mobile-optimized dark UI with role-based permissions.',
+    tags: ['Vanilla JS', 'Node.js', 'SPA', 'Offline-First', 'Role-Based', 'Zero Framework'],
+    link: 'https://github.com/brixmavu/university-campus-os-frontend.git',
+    demo: 'https://guileless-lollipop-1c18f3.netlify.app/',
     featured: true
   },
   {
     name: 'E\'khaya Dashboard',
     description: 'Real-time analytics for Kumusha Wallet across SADC. Vanilla JS, zero framework. Live KPIs: Volume, Users, Success Rate, Agent Network. Regional filtering: ZW, SA, ZM, MW. SVG icon system. 87KB bundle, <1s load on 3G.',
     tags: ['Vanilla JS', 'Fintech', 'SADC', '87KB', 'SVG Icons', 'Dark Mode'],
-    link: 'https://gitlab.com/kumusha/ekhaya-dashboard',
-    demo: 'https://ekhaya-dashboard.vercel.app',
+    link: 'https://gitlab.com/brixtonmavu/ekhaya-dashboard.git',
+    demo: 'https://beamish-bonbon-a05484.netlify.app/',
     featured: false
   },
   {
@@ -49,8 +49,8 @@ const projects = [
     name: 'Maths Dojo',
     description: 'Interactive mathematics platform. Vanilla JS, <50KB, free forever. Proves ability to ship polished UX without frameworks. Runs on calculators.',
     tags: ['Vanilla JS', 'Education', 'Performance', 'UX', '<50KB'],
-    link: '', // Local only. Add GitHub URL when pushed.
-    demo: null
+    link: '', // Local only
+    demo: 'https://admirable-seahorse-8c8614.netlify.app/'
   }
 ];
 
