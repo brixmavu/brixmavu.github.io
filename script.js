@@ -4,7 +4,7 @@ const projects = [
     name: 'University Campus OS',
     description: 'Full academic management system for 5 roles: Student, Lecturer, HOD, Janitor, SuperAdmin. Vanilla JS + Node.js HTTP server. Offline-first with localStorage. Modules: Assignments, Homework, Timetable, Library, Activities, Labs, Messages, Analytics. Mobile-optimized dark UI with role-based permissions.',
     tags: ['Vanilla JS', 'Node.js', 'SPA', 'Offline-First', 'Role-Based', 'Zero Framework'],
-    link: 'https://github.com/brixmavu/university-campus-os-frontend.git',
+    link: 'https://github.com/brixmavu/university-campus-os.git',
     demo: 'https://guileless-lollipop-1c18f3.netlify.app/',
     featured: true
   },
